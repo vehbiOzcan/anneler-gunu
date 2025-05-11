@@ -1,0 +1,126 @@
+/* — Google Fontlar — */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap');
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #ffe4e1 0%, #fff0f5 100%);
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;           /* mutlaka tam yükseklik */
+  overflow-x: hidden;          /* yatay kaydırma yok */
+  background: transparent;
+}
+
+/* — KALP DESENİ — */
+.heart-pattern {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' fill-opacity='0.2' d='M20 34s-4-3.3-8-7.7C6.3 22.7 2 18.6 2 13c0-4.4 3.6-8 8-8 2.1 0 4 .8 5.5 2.2C18 5.8 19.9 5 22 5c4.4 0 8 3.6 8 8 0 5.6-4.3 9.7-10 13.3C24 30.7 20 34 20 34z'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  opacity: 0.1;
+  animation: driftPattern 20s linear infinite;
+}
+@keyframes driftPattern {
+  0%   { background-position: 0 0; }
+  100% { background-position: 200px 200px; }
+}
+
+/* — BULUTLAR — */
+.clouds {
+  position: absolute; top: 0; left: 0;
+  width: 200%; height: 50%;
+  pointer-events: none;
+}
+.cloud {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+}
+.cloud1 {
+  width: 120px; height: 60px;
+  top: 20px; left: -150px;
+  animation: moveClouds 30s linear infinite;
+}
+.cloud1::before {
+  width: 60px; height: 60px;
+  top: -30px; left: 10px;
+}
+.cloud1::after {
+  width: 80px; height: 80px;
+  top: -20px; left: 40px;
+}
+.cloud2 {
+  width: 180px; height: 90px;
+  top: 60px; left: -200px;
+  animation: moveClouds 45s linear infinite alternate;
+}
+.cloud2::before {
+  width: 90px; height: 90px;
+  top: -40px; left: 20px;
+}
+.cloud2::after {
+  width: 100px; height: 100px;
+  top: -20px; left: 60px;
+}
+.cloud3 {
+  width: 140px; height: 70px;
+  top: 100px; left: -180px;
+  animation: moveClouds 35s linear infinite reverse;
+}
+.cloud3::before {
+  width: 70px; height: 70px;
+  top: -35px; left: 15px;
+}
+.cloud3::after {
+  width: 90px; height: 90px;
+  top: -25px; left: 45px;
+}
+@keyframes moveClouds {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(150vw); }
+}
+
+/* — INTRO METNİ — */
+.intro-text {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: #d63384;
+  animation: fadeUpOut 3s forwards;
+}
+@keyframes fadeUpOut {
+  0%   { opacity:1; transform: translateY(0); }
+  80%  { opacity:1; transform: translateY(0); }
+  100% { opacity:0; transform: translateY(-50px); }
+}
+
+/* — ZARF KISMI — */
+.envelope-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.envelope-instruction {
+  margin-top: 1rem;
+  font-family: 'Dancing Script', cursive;
+  color: #d63384;
+}

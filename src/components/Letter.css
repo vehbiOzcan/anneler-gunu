@@ -1,0 +1,87 @@
+/* — LETTER WRAPPER: container yerine doğrudan body scroll’u kullanalım — */
+.letter-page {
+    /* artık absolute değil, normal flow’da */
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;     /* üst-alt, yanyana boşluk */
+    box-sizing: border-box;
+  }
+  
+  /* — LETTER CONTAINER: tam ortada “sayfa” gibi — */
+  .letter-container {
+    width: min(80vw, 600px); /* mobilde %90, max 600px */
+    background: #fff;
+    /* border: 2px solid #ff9bcd; */
+    border-radius: 12px;     /* oval kenar */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    padding: 2rem 1.5rem;    /* iç boşluk */
+    margin: 0 auto;          /* yatay ortala */
+    /* artık container kendi scroll’lu değil, sayfa scroll’u var */
+    animation: letterSlideIn 0.8s ease-out forwards;
+  }
+  
+  /* Slide-in animasyonu */
+  @keyframes letterSlideIn {
+    from { opacity: 0; transform: translateY(-50px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
+  /* Başlık */
+  .letter-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: #d63384;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  /* Alt başlık */
+  .letter-subtitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #d63384;
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+  
+  /* Paragraflar */
+  .letter-container p {
+    font-family: 'Fuzzy Bubbles', cursive;
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  /* İmza */
+  .letter-signoff {
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    margin-top: 1.5rem;
+  }
+  .letter-signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    text-align: right;
+    margin-top: 0.5rem;
+    color: #6f2da8;
+  }
+  
+  /* Mobil iyileştirmeleri */
+  @media (max-width: 600px) {
+    .letter-container {
+      padding: 1.5rem 1rem;
+    }
+    .letter-title {
+      font-size: 2.2rem;
+    }
+    .letter-subtitle {
+      font-size: 1.6rem;
+    }
+    .letter-container p {
+      font-size: 1rem;
+    }
+  }
+  
