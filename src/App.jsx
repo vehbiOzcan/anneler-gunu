@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Letter from './components/Letter';
 import Envelope from './components/Envelope';
 import './App.css';
+import BackgroundMusic from './components/BackgroundMusic';
 
 export default function App() {
   // anne/evlat parametrelerini oku
@@ -26,6 +27,7 @@ export default function App() {
 
   return (
     <div className="page">
+      <BackgroundMusic />
       {/* kalp deseni */}
       <div className="heart-pattern" />
 
@@ -59,6 +61,10 @@ export default function App() {
           </div>
         </div>
       )}
+      
+      <footer className="app-footer">
+        developed by Vehbi
+      </footer>
     </div>
   );
 }
