@@ -9,16 +9,31 @@
     box-sizing: border-box;
   }
   
-  /* — LETTER CONTAINER: tam ortada “sayfa” gibi — */
   .letter-container {
-    width: min(80vw, 600px); /* mobilde %90, max 600px */
-    background: #fff;
-    /* border: 2px solid #ff9bcd; */
-    border-radius: 12px;     /* oval kenar */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    padding: 2rem 1.5rem;    /* iç boşluk */
-    margin: 0 auto;          /* yatay ortala */
-    /* artık container kendi scroll’lu değil, sayfa scroll’u var */
+    /* kağıt zemini: açık krem rengi */
+    background-color: #fdf7e3;
+  
+    /* hafif dokulu gölge ve iç gölge */
+    box-shadow:
+      inset 0 0 50px rgba(0, 0, 0, 0.1),
+      0 10px 20px rgba(0, 0, 0, 0.15);
+  
+    /* ince eskitilmiş kenar çizgisi */
+    border: 1px solid #d8c3a5;
+    border-radius: 12px;
+  
+    /* sepia ve kontrastla eskitme tonu */
+    filter: sepia(0.3) contrast(1.05) brightness(1.02);
+  
+    /* üzerine birkaç lekemsi degrade */
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(0,0,0,0.03) 0%, transparent 20%),
+      radial-gradient(circle at 80% 80%, rgba(0,0,0,0.02) 0%, transparent 30%);
+  
+    /* responsive genişlik ve padding */
+    width: min(80vw, 600px);
+    padding: 2rem 1.5rem;
+    margin: 0 auto;
     animation: letterSlideIn 0.8s ease-out forwards;
   }
   

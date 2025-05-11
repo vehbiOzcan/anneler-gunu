@@ -54,6 +54,7 @@ html, body, #root {
   width: 120px; height: 60px;
   top: 20px; left: -150px;
   animation: moveClouds 30s linear infinite;
+  animation-delay: -10s; 
 }
 .cloud1::before {
   width: 60px; height: 60px;
@@ -67,6 +68,7 @@ html, body, #root {
   width: 180px; height: 90px;
   top: 60px; left: -200px;
   animation: moveClouds 45s linear infinite alternate;
+  animation-delay: -10s; 
 }
 .cloud2::before {
   width: 90px; height: 90px;
@@ -80,6 +82,7 @@ html, body, #root {
   width: 140px; height: 70px;
   top: 100px; left: -180px;
   animation: moveClouds 35s linear infinite reverse;
+  animation-delay: -5s; 
 }
 .cloud3::before {
   width: 70px; height: 70px;
@@ -122,5 +125,6 @@ html, body, #root {
 .envelope-instruction {
   margin-top: 1rem;
   font-family: 'Dancing Script', cursive;
+  font-size: xx-large;
   color: #d63384;
 }

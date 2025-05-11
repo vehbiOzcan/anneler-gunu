@@ -38,10 +38,9 @@ export default function Letter({ anne, evlat }) {
             Canımm Annemm {addDative(Anne)},
           </h2>
         )}
-        <p>Sevgili Annem,</p>
         <p>Senin sevgi dolu kucağında her zorluğun üstesinden gelmeyi öğrendim. Senin sıcak gülüşün, beni her zaman güvende hissettiren bir liman oldu; gözlerindeki şefkat, karanlık günlerime umut ışığı, neşesiz anlarıma neşe kattı. Hayatımdaki en değerli rehber, en iyi öğretmen ve en sıkı dost olduğun için minnettarım.</p>
         <p>Sabahları senin varlığınla uyanmak, bana dünyanın en huzurlu başlangıcını yaşatıyor. Küçük sürprizlerin ve en basit anları bile özel kılman, hayatımı renklendiriyor. Ne zaman zorlandığımı hissetsen, kollarını açıp sarılıp yeniden cesaret bulmamı sağlıyorsun.</p>
-        <p>Sadece bu günde değil, hayatının her anında sana teşekkür etmekle kalmayıp; paylaştığımız tüm anıları, kahkahaları, hatta gözyaşlarını bile kucaklamak istiyorum. Her sarılışımda hissettiğim tarifsiz huzuru ve her paylaşımımızda içimde çınlayan o derin mutluluğu anlatacak kelime bulamıyorum.</p>
+        <p>Sadece bu günde değil, hayatının her anında sana teşekkür etmekle kalmayıp; paylaştığımız tüm anıları, kahkahaları, hatta gözyaşlarını bile kucaklamak istiyorum. Her sarılışımda hissettiğim tarifsiz huzuru ve o derin mutluluğu anlatacak kelime bulamıyorum.</p>
         <p>Bu Anneler Günü’nde aklımdan geçen tek şey, sana hak ettiğin tüm güzellikleri göstermek ve yanında geçirdiğimiz her saniyeyi ölümsüzleştirmek. Seninle paylaştığım kahkahalar, sohbetler ve sessiz anlar, benim için dünyanın en değerli hazinesi.</p>
         <p>Sen benim en büyük şansımsın. İyi ki varsın, iyi ki benim annemsin.</p>
         <p>Anneler Günün kutlu olsun!</p>

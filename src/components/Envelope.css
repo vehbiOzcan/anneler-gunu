@@ -1,49 +1,116 @@
+/* Envelope.css */
+
+/* ---------- KONTEYNER ---------- */
 .envelope-container {
     position: relative;
-    /* responsive: min 200px, ideal %50 vw, max 350px */
     width: clamp(200px, 50vw, 350px);
-    aspect-ratio: 5 / 3;
-    margin: 2rem auto;           /* üst ve alt boşluk */
+    aspect-ratio: 5/3;
+    margin: 2rem auto;
     cursor: pointer;
-    /* zarf gövdesine hafif border ve shadow */
-    background: #fff;
-    border: 2px solid #d63384;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
   
-  .envelope-body {
-    width: 100%;
-    height: 100%;
-    background: transparent; /* zemin zaten container’da var */
-    position: relative;
-    z-index: 1;
-  }
-  
-  .envelope-flap {
+/* ---------- ZARF GÖVDE ---------- */
+.envelope-body {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: #fff;
-    border-left: 2px solid #d63384;
-    border-top: 2px solid #d63384;
-    border-right: 2px solid #d63384;
-    transform-origin: top center;
-    transform: rotateX(0deg);
-    transition: transform 0.6s ease;
-    clip-path: polygon(0 0, 100% 0, 50% 50%);
+    background: #ffeed8;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    z-index: 1;
+    overflow: hidden; /* mektubun dışarı taşmaması için */
+}
+
+/* Zarfın orta çizgisi - görsel referans için (geliştirme aşamasında kullanabilirsiniz) */
+.envelope-midline {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: transparent; /* görünmez yapıyoruz */
+    z-index: 10;
+}
+  
+
+
+/* ---------- MEKTUP ---------- */
+.envelope-letter {
+    position: absolute;
+    bottom: 50%;       /* Alt kenarı zarfin ortasına yasla */
+    left: 5%;
+    width: 90%;
+    height: 70%;
+    background: #ffffff;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  
+    /* başlangıçta tamamen gizli: alta göm ve şeffaf yap */
+    transform: translateY(150%);
+    opacity: 0;
+    transition:
+      opacity    0.2s ease 0.8s;
     z-index: 2;
   }
   
-  /* Kapak açıldığında animasyon */
-  .envelope-flap.open {
+  /* kapak açıldığında bir anda hem şeffaflığı aç, hem yukarı kaydır */
+  .envelope-container.opening .envelope-letter {
+    transform: translateY(0);
+    opacity: 1;
+  }
+/* ---------- KAPAK ---------- */
+.envelope-flap {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 50%;
+    background: #e0c7a9;
+    transform-origin: top center;
+    transform: rotateX(0deg);
+    transition: transform 0.8s ease;
+    clip-path: polygon(0 0,100% 0,50% 100%);
+    backface-visibility: visible;
+    transform-style: preserve-3d;
+    z-index: 3;
+}
+  
+/* Kapak açılınca gerçek 3D katlansın */
+.envelope-container.opening .envelope-flap {
     transform: rotateX(-180deg);
-  }
+}
   
-  /* Küçük ekranlarda daha da geniş */
-  @media (max-width: 600px) {
+/* ---------- MÜHÜR (SEAL) ---------- */
+.seal {
+    position: absolute;
+    top: 45%; left: 50%;
+    width: 28px; height: 28px;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+    background: #f87585;
+    z-index: 4; /* en üstte */
+    transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+}
+  
+.seal::before,
+.seal::after {
+    content: '';
+    position: absolute;
+    width: 28px; height: 28px;
+    background: #f87585;
+    border-radius: 50%;
+}
+.seal::before { top: -14px; left: 0; }
+.seal::after  { left: 14px; top: 0; }
+  
+/* Kapak açılınca mühür hafif yukarı çıkıp kaybolsun */
+.envelope-container.opening .seal {
+    transform: translate(-50%, -70%) rotate(-45deg) scale(0.5);
+    opacity: 0;
+}
+  
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
     .envelope-container {
-      width: 60vw;
+        width: 60vw;
     }
-  }
-  
+}
